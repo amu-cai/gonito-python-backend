@@ -70,11 +70,15 @@ db_dependency = Annotated[Session, Depends(get_db)]
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
 async def create_user(db: db_dependency, create_user_request: CreateUserRequest):
+    users_exist = len(db.query(Users).offset(0).limit(1).all()) > 0
+    is_admin = False
+    if not users_exist:
+        is_admin = True
     create_user_model = Users(
         username=create_user_request.username,
         hashed_password=bcrypt_context.hash(create_user_request.password),
+        is_admin=is_admin
     )
-
     db.add(create_user_model)
     db.commit()
 

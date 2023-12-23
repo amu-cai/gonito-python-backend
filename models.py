@@ -1,5 +1,5 @@
 from database import Base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Boolean
 
 class Users(Base):
     __tablename__ = 'users'
@@ -7,3 +7,4 @@ class Users(Base):
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, unique=True)
     hashed_password = Column(String)
+    is_admin = Column(Boolean)
