@@ -1,0 +1,8 @@
+- system logowania/rejestracji/użytkowników X
+- challenges
+- submitowanie
+- all submissions
+- my submissions
+- leadearboard
+- my submission page
+- system ewaluacji
