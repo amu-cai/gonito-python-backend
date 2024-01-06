@@ -1,4 +1,4 @@
-1. 31.01.2024
+## 31.01.2024
 
 - wyświetlanie wyzwań
 - typy wyzwań, nagrody wyzwań
@@ -8,7 +8,7 @@
 - zgłaszanie rozwiązań (podstawowe metryki)
 
 
-2. 29.02.2024
+## 29.02.2024
 
 - widok leaderboard
 - widok naszych rozwiązań
@@ -18,7 +18,7 @@
 - podstrona zgłoszenia (widoczna przez usera oraz admina)
 
 
-3. 31.03.2024
+## 31.03.2024
 
 - więcej metryk
 - definicja własnej metryki przez tworzenie wyzwania na froncie
