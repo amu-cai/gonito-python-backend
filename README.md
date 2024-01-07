@@ -22,6 +22,7 @@
 
 - więcej metryk
 - definicja własnej metryki przez tworzenie wyzwania na froncie
+- odpalanie lokalnie metryk do wyzwań
 - nowy landing page frontendu
 - testowanie systemu
 - dopracowanie systemu
