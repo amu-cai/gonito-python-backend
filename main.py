@@ -42,11 +42,14 @@ async def create_challenge(file:UploadFile = File(...)):
     with open(f"temp/{file_path}", "wb") as f:
         content = await file.read()
         f.write(content)
+    already_exist_error = False
     with zipfile.ZipFile(f"temp/{file_path}", 'r') as zip_ref:
         current_challenges = [x.replace(f"{challenges_dir}\\", '') for x in glob(f"{challenges_dir}/*")]
         if zip_ref.filelist[0].filename[:-1] in current_challenges:
-            raise HTTPException(status_code=401, detail='Challenge has been already created!')
+            already_exist_error = True
         zip_ref.extractall(challenges_dir)
     os.remove(f"temp/{file_path}")
-    # TODO: Sprawdzanie struktury challenge'a, tylko admin może tworzyć challenge, refactor
+    if already_exist_error:
+        raise HTTPException(status_code=401, detail='Challenge has been already created!')
+    # TODO: Sprawdzanie struktury challenge'a, tylko admin może tworzyć challenge, refactor, inny kod błędu na istniejący już challenge
     return {"success": True, "file_path": file_path, "message": "File uloaded successfully"}
